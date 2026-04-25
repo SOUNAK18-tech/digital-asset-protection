@@ -54,6 +54,9 @@ This project provides a simple platform to upload, manage, and monitor digital m
 
 ---
 
-## 👨‍💻 SOUNAK 
+## 👨‍💻 SOUNAK
 
-Your Name
+
+
+
+
