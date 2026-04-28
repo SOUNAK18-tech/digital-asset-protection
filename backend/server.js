@@ -5,7 +5,6 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = 3001;
 
 app.use(cors());
 app.use(express.json());
@@ -62,7 +61,7 @@ app.get('/api/assets', (req, res) => {
 app.patch('/api/assets/:id/report', (req, res) => {
   const { id } = req.params;
   const asset = assets.find(a => a.id === id);
-  
+
   if (!asset) {
     return res.status(404).json({ error: 'Asset not found' });
   }
@@ -71,6 +70,8 @@ app.patch('/api/assets/:id/report', (req, res) => {
   res.json(asset);
 });
 
+const PORT = process.env.PORT || 3001;
+
 app.listen(PORT, () => {
-  console.log(`Backend server running on http://localhost:${PORT}`);
+  console.log(`Backend server running on port ${PORT}`);
 });

@@ -51,28 +51,28 @@ function App() {
   return (
     <div className="app-container">
       <header>
-        <h1>Digital Asset Protection</h1>
-        <p className="subtitle">Securely store and manage your digital assets</p>
+        <h1>AssetGuard</h1>
+        <p className="subtitle">Digital Asset Protection System</p>
       </header>
 
       <main>
         <UploadForm onUploadSuccess={handleUploadSuccess} />
-        
+
         <div className="filter-container">
-          <button 
-            className={`filter-btn ${filter === 'All' ? 'active' : ''}`} 
+          <button
+            className={`filter-btn ${filter === 'All' ? 'active' : ''}`}
             onClick={() => setFilter('All')}
           >
             Show All
           </button>
-          <button 
-            className={`filter-btn ${filter === 'Safe' ? 'active' : ''}`} 
+          <button
+            className={`filter-btn ${filter === 'Safe' ? 'active' : ''}`}
             onClick={() => setFilter('Safe')}
           >
             Show Safe
           </button>
-          <button 
-            className={`filter-btn ${filter === 'Reported' ? 'active' : ''}`} 
+          <button
+            className={`filter-btn ${filter === 'Reported' ? 'active' : ''}`}
             onClick={() => setFilter('Reported')}
           >
             Show Reported
