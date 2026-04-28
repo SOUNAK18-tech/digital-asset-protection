@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './index.css';
 import UploadForm from './components/UploadForm';
 import AssetGrid from './components/AssetGrid';
+const BASE_URL = "https://assetguard-backend-dzfp.onrender.com";
 
 function App() {
   const [assets, setAssets] = useState([]);
@@ -9,7 +10,7 @@ function App() {
 
   const fetchAssets = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/assets');
+      const response = await fetch(`${BASE_URL}/api/assets`);
       const data = await response.json();
       setAssets(data);
     } catch (error) {
@@ -29,7 +30,7 @@ function App() {
 
   const handleReport = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3001/api/assets/${id}/report`, {
+      const response = await fetch(`${BASE_URL}/api/assets/${id}/report`, {
         method: 'PATCH',
       });
       if (response.ok) {
