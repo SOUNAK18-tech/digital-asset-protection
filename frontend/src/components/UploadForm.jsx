@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+const BASE_URL = "https://assetguard-backend-dzfp.onrender.com";
+
 function UploadForm({ onUploadSuccess }) {
   const [file, setFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
@@ -26,7 +28,7 @@ function UploadForm({ onUploadSuccess }) {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://localhost:3001/api/upload', {
+      const response = await fetch(`${BASE_URL}/api/upload`, {
         method: 'POST',
         body: formData,
       });
@@ -58,7 +60,11 @@ function UploadForm({ onUploadSuccess }) {
             disabled={isUploading}
           />
         </div>
-        {error && <p style={{ color: 'var(--danger-color)', marginBottom: '1rem' }}>{error}</p>}
+        {error && (
+          <p style={{ color: 'var(--danger-color)', marginBottom: '1rem' }}>
+            {error}
+          </p>
+        )}
         <button type="submit" className="btn btn-primary" disabled={!file || isUploading}>
           {isUploading ? 'Uploading...' : 'Upload Asset'}
         </button>
